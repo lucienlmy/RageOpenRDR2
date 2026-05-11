@@ -243,7 +243,7 @@ namespace rage
 
 			std::string fName(fileName);
 
-			// remove the crc part in the device name so you can use the normal respective foldeer
+			// remove the crc part in the device name so you can use the normal respective folder
 			auto pos = fName.find("crc:/");
 			if (pos != std::string::npos)
 				fName.erase(pos, 4);
