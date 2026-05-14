@@ -345,8 +345,9 @@ bool rage::fiDeviceLocal::SetEndOfFile(HANDLE handle)
 
 uint32_t rage::fiDeviceLocal::GetAttributes(const char* fileName)
 {
-	uint32_t attributes = ::GetFileAttributesA(ToFullPath(fileName).c_str());
-	logger::write("device", "[%s] %s", __FUNCTION__, fileName);
+	std::string fullPath = ToFullPath(fileName);
+	uint32_t attributes = ::GetFileAttributesA(fullPath.c_str());
+	logger::write("device", "[%s] %s (Newmods path: %s)", __FUNCTION__, fileName, fullPath.c_str());
 	return attributes;
 }
 
